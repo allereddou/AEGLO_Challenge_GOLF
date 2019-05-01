@@ -3,7 +3,7 @@ import unittest
 from src.challenge_1 import c
 
 
-class Test_Challenge_1(unittest.TestCase):
+class TestChallenge1(unittest.TestCase):
 
     def test_whenEmptyWordToFind_thenReturnsBaseString(self):
         to_find = ''
@@ -11,7 +11,6 @@ class Test_Challenge_1(unittest.TestCase):
 
         result = c(base, to_find)
         self.assertEqual(base, result)
-
 
     def test_whenWordToFindIsBaseString_thenReturnsBaseString(self):
         to_find = 'snek'
@@ -41,6 +40,13 @@ class Test_Challenge_1(unittest.TestCase):
 
         result = c(base, to_find)
         self.assertEqual(answer, result)
+
+    def test_whenWordToFindContainsUppercase_thenReturnsCorrectAnswer(self):
+        to_find_string = 'Pee'
+        base_string = 'Pedofile'
+        answer_string = '[Pe]dofil[e]'
+        result = c(base_string, to_find_string)
+        self.assertEqual(result, answer_string)
 
 
 if __name__ == '__main__':
